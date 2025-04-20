@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Cosmic Serpent - Responsive</title>
+    <title>Cosmic Serpent - Enhanced</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#050510">
-    <link rel="icon" href="favicon.png"> <!-- You need to provide this file -->
+    <link rel="icon" href="favicon.png">
 </head>
 <body>
     <div class="outer-container">
@@ -18,26 +18,38 @@
             <div class="score-container">
                  <div class="score-board">Score: <span id="score" class="score-value">0</span></div>
                  <div class="combo-indicator" id="comboIndicator" style="opacity: 0;">x<span id="comboMultiplier">1</span></div>
+                 <!-- Added Max Length Display -->
+                 <div class="stat-board">Length: <span id="currentLength" class="score-value">0</span></div>
                  <div class="high-score-board">High Score: <span id="highScore" class="score-value">0</span></div>
             </div>
             <div class="canvas-wrapper">
                 <canvas id="backgroundCanvas"></canvas>
                 <canvas id="gameCanvas"></canvas>
                 <div id="warningOverlay" class="warning-overlay" style="display: none;"> <span id="warningText"></span> </div>
-                <div id="startScreen" class="game-overlay active"> <h2>Cosmic Serpent</h2> <p>Swipe to Slither!<br>Collect Orbs & Nebulae.<br>Use Power-ups!</p> <p>Beware Asteroids!</p> <button id="startButton">Launch</button> </div>
+                <div id="startScreen" class="game-overlay active">
+                    <h2>Cosmic Serpent</h2>
+                    <p>Swipe to Slither!<br>Collect Orbs & Nebulae.<br>
+                       Use <span class="food-example powerup phase"></span> Crystals, <span class="food-example powerup multi"></span> Multipliers, & <span class="food-example powerup shield"></span> Shields!
+                    </p>
+                    <p>Avoid Asteroids & <span class="food-example dark-matter"></span> Dark Matter!</p>
+                    <button id="startButton">Launch</button>
+                </div>
                 <div id="pauseScreen" class="game-overlay"> <h2>Paused</h2> <p>Tap screen or press 'P'/'Esc' to Resume</p> <button id="resumeButton">Resume</button> </div>
-                <div id="gameOverScreen" class="game-overlay"> <h2>Drift Ended</h2> <p>Final Score: <span id="finalScore">0</span></p> <p id="newHighScoreMsg" style="display: none;">New Cosmic Record!</p> <button id="restartButton">Restart Voyage</button> </div>
+                <div id="gameOverScreen" class="game-overlay"> <h2>Drift Ended</h2> <p>Final Score: <span id="finalScore">0</span></p> <p>Max Length: <span id="finalLength">0</span></p> <p id="newHighScoreMsg" style="display: none;">New Cosmic Record!</p> <button id="restartButton">Restart Voyage</button> </div>
                 <div id="powerupIndicator" class="powerup-indicator" style="opacity: 0;"> <span id="powerupIcon"></span> <span id="powerupName"></span>: <span id="powerupTimer"></span>s </div>
             </div>
              <p class="controls-hint">Swipe to Move | Tap/P/Esc to Pause</p>
         </div>
     </div>
 
-    <!-- Audio Elements (Still require local files) -->
+    <!-- Audio Elements (Add new ones) -->
     <audio id="eatSound" src="eat.wav" preload="auto"></audio>
     <audio id="bonusSound" src="bonus.wav" preload="auto"></audio>
     <audio id="powerupSound" src="powerup.wav" preload="auto"></audio>
     <audio id="phaseSound" src="phase.wav" preload="auto"></audio>
+    <audio id="shieldSound" src="shield.wav" preload="auto"></audio>   <!-- New -->
+    <audio id="shrinkSound" src="shrink.wav" preload="auto"></audio>   <!-- New -->
+    <audio id="explodeSound" src="explode.wav" preload="auto"></audio> <!-- New -->
     <audio id="warningSound" src="warning.wav" preload="auto"></audio>
     <audio id="gameOverSound" src="gameOver.wav" preload="auto"></audio>
     <audio id="backgroundMusic" src="music.mp3" preload="auto" loop></audio>
